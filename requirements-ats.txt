@@ -1,0 +1,5 @@
+# Python 3.11+ and Git required. Exact upstream revision reviewed for this build.
+-r requirements.txt
+ats-scrapers[scrapers] @ git+https://github.com/kalil0321/ats-scrapers.git@6b44a1badc9bfbf5cf176f75265cc5729e520e99
+# Supports environments configured with a SOCKS proxy as well as direct access.
+httpx[socks]>=0.27

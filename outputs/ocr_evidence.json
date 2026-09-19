@@ -1,0 +1,53 @@
+[
+  {
+    "audit_file": "debug/ocr/61eb97a34330_20260919T032048098023/extraction.json",
+    "screenshots": [
+      "debug/ocr/61eb97a34330_20260919T032048098023/viewport_01.png",
+      "debug/ocr/61eb97a34330_20260919T032048098023/viewport_02.png"
+    ],
+    "capture_limit_reached": false,
+    "review_required": true
+  },
+  {
+    "audit_file": "debug/ocr/0af071ed45c0_20260919T032054381984/extraction.json",
+    "screenshots": [
+      "debug/ocr/0af071ed45c0_20260919T032054381984/viewport_01.png",
+      "debug/ocr/0af071ed45c0_20260919T032054381984/viewport_02.png",
+      "debug/ocr/0af071ed45c0_20260919T032054381984/viewport_03.png"
+    ],
+    "capture_limit_reached": false,
+    "review_required": true
+  },
+  {
+    "audit_file": "debug/ocr/c8fdc7955753_20260919T032104847781/extraction.json",
+    "screenshots": [
+      "debug/ocr/c8fdc7955753_20260919T032104847781/viewport_01.png",
+      "debug/ocr/c8fdc7955753_20260919T032104847781/viewport_02.png",
+      "debug/ocr/c8fdc7955753_20260919T032104847781/viewport_03.png",
+      "debug/ocr/c8fdc7955753_20260919T032104847781/viewport_04.png"
+    ],
+    "capture_limit_reached": false,
+    "review_required": true
+  },
+  {
+    "audit_file": "debug/ocr/65174c30b6a6_20260919T032115308181/extraction.json",
+    "screenshots": [
+      "debug/ocr/65174c30b6a6_20260919T032115308181/viewport_01.png",
+      "debug/ocr/65174c30b6a6_20260919T032115308181/viewport_02.png",
+      "debug/ocr/65174c30b6a6_20260919T032115308181/viewport_03.png",
+      "debug/ocr/65174c30b6a6_20260919T032115308181/viewport_04.png"
+    ],
+    "capture_limit_reached": false,
+    "review_required": true
+  },
+  {
+    "audit_file": "debug/ocr/9816ca4daea9_20260919T032126068338/extraction.json",
+    "screenshots": [
+      "debug/ocr/9816ca4daea9_20260919T032126068338/viewport_01.png",
+      "debug/ocr/9816ca4daea9_20260919T032126068338/viewport_02.png",
+      "debug/ocr/9816ca4daea9_20260919T032126068338/viewport_03.png"
+    ],
+    "capture_limit_reached": false,
+    "review_required": true
+  }
+]

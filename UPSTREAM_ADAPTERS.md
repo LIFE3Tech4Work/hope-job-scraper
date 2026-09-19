@@ -1,0 +1,76 @@
+# Upstream adapter inventory
+
+Registered at revision 6b44a1badc9bfbf5cf176f75265cc5729e520e99. This is a code inventory, not a tested-coverage claim. Custom domains may require explicit configuration.
+
+| Source key | Adapter class |
+|---|---|
+| adp | ADPWorkforceNowScraper |
+| amazon | AmazonScraper |
+| apple | AppleScraper |
+| arbetsformedlingen | ArbetsformedlingenScraper |
+| ashby | AshbyScraper |
+| avature | AvatureScraper |
+| bamboohr | BambooHRScraper |
+| beisen | BeisenScraper |
+| beisen_legacy | BeisenLegacyScraper |
+| breezy | BreezyScraper |
+| builtin | BuiltInScraper |
+| bundesagentur | BundesagenturScraper |
+| bytedance | BytedanceScraper |
+| cornerstone | CornerstoneScraper |
+| darwinbox | DarwinboxScraper |
+| dayforce | DayforceScraper |
+| eightfold | EightfoldScraper |
+| eures | EuresScraper |
+| gem | GemScraper |
+| getonbrd | GetOnBrdScraper |
+| google | GoogleScraper |
+| greenhouse | GreenhouseScraper |
+| gupy | GupyScraper |
+| herp | HerpScraper |
+| hrmos | HrmosScraper |
+| icims | iCIMSScraper |
+| infojobs_es | InfoJobsSpainScraper |
+| jazzhr | JazzHRScraper |
+| jobbankca | JobBankCAScraper |
+| jobs_cz | JobsCzScraper |
+| jobsch | JobsChScraper |
+| jobvite | JobviteScraper |
+| join_com | JoinComScraper |
+| keka | KekaScraper |
+| lever | LeverScraper |
+| manfred | ManfredScraper |
+| mercor | MercorScraper |
+| meta | MetaScraper |
+| moka | MokaScraper |
+| oracle | OracleScraper |
+| pageup | PageUpScraper |
+| paycom | PaycomScraper |
+| paylocity | PaylocityScraper |
+| personio | PersonioScraper |
+| phenom | PhenomScraper |
+| pinpoint | PinpointScraper |
+| programathor | ProgramathorScraper |
+| recruitee | RecruiteeScraper |
+| recruiterbox | RecruiterboxScraper |
+| remoteok | RemoteOKScraper |
+| rippling | RipplingScraper |
+| seek | SeekScraper |
+| smartrecruiters | SmartRecruitersScraper |
+| softgarden | SoftgardenScraper |
+| successfactors | SuccessFactorsScraper |
+| taleo | TaleoScraper |
+| teamtailor | TeamtailorScraper |
+| tesla | TeslaScraper |
+| thehub | TheHubScraper |
+| tiktok | TikTokScraper |
+| uber | UberScraper |
+| ukg | UKGProScraper |
+| usajobs | USAJobsScraper |
+| wanted | WantedScraper |
+| welcometothejungle | WTTJScraper |
+| wellfound | WellfoundScraper |
+| weworkremotely | WeWorkRemotelyScraper |
+| workable | WorkableScraper |
+| workday | WorkdayScraper |
+| ycombinator | YCombinatorScraper |

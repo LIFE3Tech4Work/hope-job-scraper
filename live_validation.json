@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://boards.greenhouse.io/anthropic",
+    "rows": 2,
+    "titles": [
+      "Accommodations Partner",
+      "Account Executive, AI Native"
+    ],
+    "descriptions_present": 2,
+    "seconds": 8.09
+  },
+  {
+    "url": "https://jobs.ashbyhq.com/openai",
+    "rows": 2,
+    "titles": [
+      "Technical Program Manager, Compute Infrastructure",
+      "Research Engineer"
+    ],
+    "descriptions_present": 2,
+    "seconds": 6.92
+  }
+]
