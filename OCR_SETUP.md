@@ -35,7 +35,7 @@ These are URL placeholders; replace them with actual employer URLs.
 4. Only blank fields are filled. Existing compensation is kept together as a group, avoiding mixing one scraper's minimum with an OCR maximum from a different pay range.
 5. Direct posting mode lets you force screenshot extraction for an individual URL, including testing fields that other extraction paths omit.
 
-A posting limit bounds browser/OCR work across a batch. Pages beyond that limit retain missing fields. No missing field is guaranteed recoverable: the posting may not state it at all.
+A posting limit bounds browser/OCR work separately for each board in the app. Each board receives a fresh allowance, even if an earlier board fails. Five postings across eight board inputs permits up to 40 attempts. The CLI limit applies to its single input. Pages beyond that limit retain missing fields. No missing field is guaranteed recoverable: the posting may not state it at all.
 
 ## Capture and extraction
 

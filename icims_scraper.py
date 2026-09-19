@@ -23,11 +23,39 @@ def _money_value(s):
     m=re.search(r"\$\s*([0-9][0-9,]*(?:\.\d+)?)",s or "")
     return float(m.group(1).replace(',','')) if m else None
 
+
+def _load_content(session, url):
+    """Follow same-host iCIMS content frames, including the noscript wrapper."""
+    visited = set()
+    for _ in range(5):
+        if url in visited:
+            raise RuntimeError("iCIMS content frame loop detected")
+        visited.add(url)
+        response = session.get(url, timeout=60)
+        response.raise_for_status()
+        current = response.url or url
+        soup = BeautifulSoup(response.text, "html.parser")
+        frame_url = None
+        for frame in soup.select("iframe[src]"):
+            candidate = urljoin(current, frame["src"])
+            parsed = urlparse(candidate)
+            if (parsed.scheme in {"http", "https"}
+                    and parsed.hostname == urlparse(current).hostname
+                    and parsed.path.startswith("/jobs/")):
+                frame_url = candidate
+                break
+        if frame_url is None:
+            return soup, current
+        url = frame_url
+    raise RuntimeError("iCIMS content frame depth exceeded")
+
 def scrape_icims(search_url: str, max_jobs: Optional[int]=None, debug_dir: str="debug", save_debug: bool=True, progress_callback: Optional[Callable]=None) -> pd.DataFrame:
     s=requests.Session(); s.headers.update({"User-Agent":"Mozilla/5.0"})
-    detail_urls=[]; seen=set(); current=search_url; pages=0
-    while current and pages<200:
-        pages+=1; r=s.get(current,timeout=60); r.raise_for_status(); soup=BeautifulSoup(r.text,"html.parser")
+    detail_urls=[]; seen=set(); current=search_url; pages=0; visited_pages=set()
+    while current and pages<200 and current not in visited_pages:
+        visited_pages.add(current)
+        pages+=1; soup,current=_load_content(s,current)
+        visited_pages.add(current)
         for a in soup.select('a[href*="/jobs/"]'):
             href=urljoin(current,a.get("href") or "")
             if re.search(r"/jobs/\d+/.+?/job/?(?:\?|$)",href) and href not in seen:
@@ -47,7 +75,7 @@ def scrape_icims(search_url: str, max_jobs: Optional[int]=None, debug_dir: str="
     root=Path(debug_dir)/"icims"; records=[]
     if save_debug: root.mkdir(parents=True,exist_ok=True)
     for i,href in enumerate(detail_urls,1):
-        rr=s.get(href,timeout=60); rr.raise_for_status(); soup=BeautifulSoup(rr.text,"html.parser"); lines=_strings(soup); text=" ".join(lines)
+        soup,href=_load_content(s,href); lines=_strings(soup); text=" ".join(lines)
         title=clean_text(soup.find("h1").get_text(" ",strip=True) if soup.find("h1") else "")
         if progress_callback: progress_callback(i,len(detail_urls),title or href)
         location=_after(lines,"Job Location"); category=_after(lines,"Category") or category_from_title(title); raw_type=_after(lines,"Type")

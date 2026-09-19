@@ -26,7 +26,7 @@ def detect_platform(url: str) -> str:
     path = urlparse(url).path.lower()
     if "workforcenow.adp.com" in host or "/mascsr/" in path:
         return "ADP Workforce Now"
-    if "myjobs.adp.com" in host and "/cx/" in path:
+    if host == "myjobs.adp.com" and "cx" in path.strip("/").split("/"):
         return "ADP MyJobs"
     if "oraclecloud.com" in host and "candidateexperience" in path:
         return "Oracle Recruiting Cloud"

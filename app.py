@@ -41,7 +41,8 @@ with col3: run_full=st.checkbox("Remove job result limit (coverage depends on ad
 with st.expander("Local screenshot OCR fallback"):
     ocr_enabled=st.checkbox("Enable local screenshot OCR with Tesseract",value=False)
     st.caption("Screenshots are processed on this computer. No API key, cloud model or per-call fees. Install Tesseract first. Evidence is saved locally and extracted fields require review.")
-    ocr_postings=st.number_input("Maximum postings to OCR for this batch",min_value=1,max_value=100,value=5)
+    ocr_postings=st.number_input("Maximum postings to OCR per board",min_value=1,max_value=100,value=5)
+    st.caption("Each board receives its own OCR allowance. Five postings across eight boards allows up to 40 OCR attempts.")
     ocr_pages=st.number_input("Maximum screenshots per posting",min_value=1,max_value=12,value=6)
     ocr_language=st.text_input("Tesseract language",value="eng")
     screenshot_only=st.checkbox("Treat each URL as one posting and extract screenshots directly",value=False)
@@ -50,11 +51,11 @@ if st.button("Run scrape",type="primary"):
     if not urls: st.error("Enter at least one URL.")
     elif screenshot_only and not ocr_enabled: st.error("Enable screenshot extraction to use direct posting mode.")
     else:
-        ocr=OCRSettings(enabled=ocr_enabled,max_postings=int(ocr_postings),max_screenshots=int(ocr_pages),language=ocr_language)
         audits=[]
         all_frames=[]; board_results=[]; status=st.empty(); progress=st.progress(0)
         try:
             for board_index,url in enumerate(urls,1):
+                ocr=OCRSettings(enabled=ocr_enabled,max_postings=int(ocr_postings),max_screenshots=int(ocr_pages),language=ocr_language)
                 platform=safe_detect(url); status.write(f"Board {board_index}/{len(urls)}: {platform}")
                 def update(i,total,title):
                     board_fraction=(board_index-1)/len(urls)
